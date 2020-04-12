@@ -6,10 +6,10 @@ hr
 
 .row    
   .col-xs-12
-    .a.list-group-item.clearfix(href="#" "*ngFor"="let recipe of recipes") 
+    a.list-group-item.clearfix(*ngFor="let recipe of recipes" href="#") 
       .pull-left
         h4.list-group-item-heading {{ recipe.name }}
         p.list-group-item-text Description {{ recipe.description }}
       span.pull-right
-        img.img-responsive("[src]"="recipe.imagePath" alt="{{ recipe.name }}").recipe-list-img
+        img.img-responsive([src]="recipe.imagePath" alt="{{ recipe.name }}").recipe-list-img
     

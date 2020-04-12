@@ -7,7 +7,7 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.styl'],
 })
 export class RecipeListComponent implements OnInit {
-  recipes: Recipe[] = [new Recipe('Test', 'Test', 'Test')];
+  recipes: Recipe[] = [new Recipe('Test', 'Test', 'https://cdn4.iconfinder.com/data/icons/logos-and-brands-1/512/21_Angular_logo_logos-512.png')];
 
   constructor() {}
 
