@@ -28,8 +28,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.styl"
+              "src/styles/root.styl"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles"]
+            },
             "scripts": []
           },
           "configurations": {
