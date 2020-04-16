@@ -1,9 +1,9 @@
 .row
   .col-xs-10
-    app-shopping-edit
+    app-shopping-edit((ingredientAdded)='onIngredientAdded($event)')
 
 hr
 
 .row
   ul.list-group
-    a.list-group-item.shopping-list-item(*ngFor='let ingredient of ingredients') {{ ingredient.name }} {{ ingredient.amount }}
+    a.list-group-item.shopping-list-item(*ngFor='let ingredient of ingredients') {{ ingredient.name }} ({{ ingredient.amount }})
