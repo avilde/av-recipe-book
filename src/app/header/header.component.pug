@@ -1,21 +1,21 @@
 nav.navbar.navbar-default
   div.container-fluid
     div.navbar-header
-      a.navbar-brand(href="#") Recipe Book
+      a.navbar-brand(href='#') Recipe Book
 
     div.collapse.navbar-collapse
       ul.nav.navbar-nav
         li
-          a((click)="onSelect('recipe')" href="#") Recipes
+          a((click)='onSelect("recipe")' href='#') Recipes
         li
-          a((click)="onSelect('shopping-list')" href="#") Shopping List
+          a((click)='onSelect("shopping-list")' href='#') Shopping List
 
       ul.nav.navbar-nav.navbar-right
         li.dropdown
-          a.dropdown-toggle(href="#" role="button") Manage
+          a.dropdown-toggle(href='#' role='button') Manage
             span.caret
           ul.dropdown-menu
             li
-              a(href="#") Save Data
+              a(href='#') Save Data
             li
-              a(href="#") Fetch Data
+              a(href='#') Fetch Data

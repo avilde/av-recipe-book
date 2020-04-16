@@ -3,15 +3,15 @@
     form
       .row
         .col-sm-5.form-group
-          label(for="name")
-          input#name.form-control(type="text")
+          label(for='name')
+          input#name.form-control(type='text', #nameInput, autocomplete='off')
 
         .col-sm-2.form-group
-          label(for="amount")
-          input#amount.form-control(type="number")
+          label(for='amount')
+          input#amount.form-control(type='number', #amountInput, autocomplete='off')
 
       .row
         .col-xs-12
-          button.btn.btn-success(type="submit") Add
-          button.btn.btn-danger(type="submit") Delete
-          button.btn.btn-primary(type="submit") Clear
+          button.btn.btn-success(type='submit', (click)='onAddItem()') Add
+          button.btn.btn-danger(type='submit') Delete
+          button.btn.btn-primary(type='submit') Clear

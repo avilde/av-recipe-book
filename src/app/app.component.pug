@@ -1,7 +1,7 @@
-app-header((featureSelected)="onNavigate($event)")
+app-header((featureSelected)='onNavigate($event)')
 
 .container
     .row
         .col-md-12
-            app-recipes(*ngIf="loadedFeature === 'recipe'")
-            app-shopping-list(*ngIf="loadedFeature === 'shopping-list'")
+            app-recipes(*ngIf='loadedFeature === "recipe"')
+            app-shopping-list(*ngIf='loadedFeature === "shopping-list"')
