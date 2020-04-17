@@ -20,8 +20,10 @@
         li 
           a(href='#') Delete Recipe
 
-.row
+.row.description
   .col-xs-12 {{ recipe.description }}
 
 .row
-  .col-xs-12 Ingredients
+  .col-xs-12
+    ul.list-group
+      li.list-group-item(*ngFor="let ingredient of recipe.ingredients") {{ ingredient.name }} - {{ ingredient.amount }}

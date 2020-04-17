@@ -1,14 +1,16 @@
 import { Recipe } from './recipe.model';
 import { EventEmitter } from '@angular/core';
+import { Ingredient } from '../shared/ingredient.model';
 
 export class RecipeService {
   public recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
     new Recipe(
-      'Test',
-      'Test',
-      'https://cdn4.iconfinder.com/data/icons/logos-and-brands-1/512/21_Angular_logo_logos-512.png'
+      'Burger',
+      'Super tasty burger',
+      '../../assets/burger.png',
+      [new Ingredient('Meat', 1), new Ingredient('Buns', 2)]
     ),
   ];
 
