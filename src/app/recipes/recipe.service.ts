@@ -13,6 +13,6 @@ export class RecipeService {
   ];
 
   public getRecipes() {
-    return this.recipes.slice();
+    return [...this.recipes];
   }
 }
