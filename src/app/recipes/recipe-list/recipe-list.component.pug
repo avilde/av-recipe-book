@@ -1,10 +1,13 @@
 .row
   .col-xs-12
-    button.btn.btn-success New Recipe
+    button.btn.btn-success((click)="onNewRecipe()") New Recipe
 
 hr 
 
 .row    
   .col-xs-12
-    app-recipe-item(*ngFor='let recipeEl of recipes; let i = index', [recipe]='recipeEl', [index]="i")
-    
+    app-recipe-item(
+      *ngFor='let recipeEl of recipes; let i = index', 
+      [recipe]='recipeEl', 
+      [index]="i"
+    )
