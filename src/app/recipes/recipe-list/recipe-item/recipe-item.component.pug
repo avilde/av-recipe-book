@@ -1,4 +1,4 @@
-a.list-group-item.recipe-list-item((click)='onSelected()', href='#') 
+a.list-group-item.recipe-list-item([routerLink]="[index]", routerLinkActive="active")
   .pull-left
     h4.list-group-item-heading {{ recipe.name }}
     p.list-group-item-text Description {{ recipe.description }}

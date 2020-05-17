@@ -5,17 +5,17 @@ nav.navbar.navbar-default
 
     div.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li
-          a((click)='onSelect("recipe")' href='#') Recipes
-        li
-          a((click)='onSelect("shopping-list")' href='#') Shopping List
+        li(routerLinkActive="active")
+          a(routerLink="/recipes") Recipes
+        li(routerLinkActive="active")
+          a(routerLink="/shopping-list") Shopping List
 
       ul.nav.navbar-nav.navbar-right
         li.dropdown(appDropdown)
-          a.dropdown-toggle(href='#' role='button') Manage
+          a.dropdown-toggle(role='button') Manage
             span.caret
           ul.dropdown-menu
             li
-              a(href='#') Save Data
+              a Save Data
             li
-              a(href='#') Fetch Data
+              a Fetch Data
