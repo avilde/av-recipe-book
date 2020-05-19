@@ -1,17 +1,29 @@
 .row
   .col-xs-12
-    form
+    form(
+      #form='ngForm',
+      (ngSubmit)='onSubmit(form)'
+    )
       .row
         .col-sm-5.form-group
-          label(for='name')
-          input#name.form-control(type='text', #nameInput, autocomplete='off')
+          label(for='name') Name
+          input#name.form-control(
+            type='text', 
+            autocomplete='off', 
+            name='name',
+            ngModel
+          )
 
         .col-sm-2.form-group
-          label(for='amount')
-          input#amount.form-control(type='number', #amountInput, autocomplete='off')
-
+          label(for='amount') Amount
+          input#amount.form-control(
+            type='number', 
+            autocomplete='off',
+            name='amount',
+            ngModel
+          )
       .row
         .col-xs-12
-          button.btn.btn-success(type='submit', (click)='onAddItem($event)') Add
+          button.btn.btn-success(type='submit') Add
           button.btn.btn-danger(type='submit') Delete
           button.btn.btn-primary(type='submit') Clear
