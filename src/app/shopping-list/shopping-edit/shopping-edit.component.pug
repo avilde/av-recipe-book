@@ -2,7 +2,7 @@
   .col-xs-12
     form(
       #form='ngForm',
-      (ngSubmit)='onSubmit(form)'
+      (ngSubmit)='onUpsertIngredient(form)'
     )
       .row
         .col-sm-5.form-group
@@ -30,6 +30,6 @@
           button.btn.btn-success(
             type='submit', 
             [disabled]="!form.valid"
-          ) Add
+          ) {{ editMode ? 'Update' : 'Add' }}
           button.btn.btn-danger(type='submit') Delete
           button.btn.btn-primary(type='submit') Clear
