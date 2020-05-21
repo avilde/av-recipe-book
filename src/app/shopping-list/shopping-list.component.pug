@@ -6,4 +6,7 @@ hr
 
 .row
   ul.list-group
-    a.list-group-item.shopping-list-item(*ngFor='let ingredient of ingredients') {{ ingredient.name }} ({{ ingredient.amount }})
+    a.list-group-item.shopping-list-item(
+      *ngFor='let ingredient of ingredients; let i = index',
+      (click)="onEditItem(i)"
+    ) {{ ingredient.name }} ({{ ingredient.amount }})
