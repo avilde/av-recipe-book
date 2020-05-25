@@ -34,11 +34,14 @@ div.row
           )
           
       div.row.ingredients
-        div.col-xs-12
-          div.row
+        div.col-xs-12(formArrayName='ingredients')
+          div.row(
+            [formGroupName]='i',
+            *ngFor='let ingredientControl of controls; let i = index'
+          )
             div.col-xs-8
-              input.form-control(type='text')
+              input.form-control(type='text', formControlName='name')
             div.col-xs-2
-              input.form-control(type='number')
+              input.form-control(type='number', formControlName='amount')
             div.col-xs-2
               button.btn.btn-danger X
