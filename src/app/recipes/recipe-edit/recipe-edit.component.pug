@@ -1,44 +1,44 @@
 div.row
   div.col-xs-12
-    from
+    from('[formGroup]'='recipeForm')
       div.row
         div.col-xs-12
-          button(type='submit', class='btn btn-success') Save
-          button(type='button', class='btn') Cancel
+          button.btn.btn-success((click)='onFormSubmit(recipeForm)') Save
+          button.btn(type='button') Cancel
 
       div.row
         div.col-xs-12
           div.form-group
             label(for='name') Name
-            input(type='text', id='name', class='form-control')
+            input.form-control(type='text', id='name', formControlName='name')
 
       div.row
         div.col-xs-12
           div.form-group
             label(for='imagePath') Image URL
-            input(type='text', id='imagePath', class='form-control')
+            input.form-control(type='text', id='imagePath', formControlName='imagePath')
 
       div.row
         div.col-xs-12
-          img(src='' class='img-responsive')
+          img.img-responsive(src='')
 
       div.row
         div.col-xs-12
           div.form-group
           label(for='description') Description
-          textarea(
+          textarea.form-control(
             type='text',
             id='description', 
-            class='form-control', 
-            rows='6'
+            rows='6',
+            formControlName='description'
           )
           
       div.row.ingredients
         div.col-xs-12
           div.row
             div.col-xs-8
-              input(type='text', class='form-control')
+              input.form-control(type='text')
             div.col-xs-2
-              input(type='number', class='form-control')
+              input.form-control(type='number')
             div.col-xs-2
-              button(class='btn btn-danger') X
+              button.btn.btn-danger X
