@@ -3,20 +3,20 @@ div.row
     from('[formGroup]'='recipeForm')
       div.row
         div.col-xs-12
-          button.btn.btn-success((click)='onFormSubmit(recipeForm)') Save
+          button.btn.btn-success((click)='onFormSubmit()', '[disabled]'='!recipeForm.valid') Save
           button.btn(type='button') Cancel
 
       div.row
         div.col-xs-12
           div.form-group
             label(for='name') Name
-            input.form-control(type='text', id='name', formControlName='name')
+            input.form-control(type='text', id='name', formControlName='name', placeholder='Enter recipe name...')
 
       div.row
         div.col-xs-12
           div.form-group
             label(for='imagePath') Image URL
-            input.form-control(type='text', id='imagePath', formControlName='imagePath')
+            input.form-control(type='text', id='imagePath', formControlName='imagePath', placeholder='Enter image URL...')
 
       div.row
         div.col-xs-12
@@ -30,13 +30,14 @@ div.row
             type='text',
             id='description', 
             rows='6',
-            formControlName='description'
+            formControlName='description',
+            placeholder='Enter recipe description...'
           )
           
       div.row.ingredients
         div.col-xs-12(formArrayName='ingredients')
           div.row(
-            [formGroupName]='i',
+            '[formGroupName]'='i',
             *ngFor='let ingredientControl of controls; let i = index'
           )
             div.col-xs-8
@@ -45,3 +46,9 @@ div.row
               input.form-control(type='number', formControlName='amount')
             div.col-xs-2
               button.btn.btn-danger X
+      
+      hr
+
+      div.row
+        div.col-xs-12
+          button.btn.btn-success((click)='onAddIngredient()', type='button') Add Ingredient
