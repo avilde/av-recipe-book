@@ -16,11 +16,11 @@ div.row
         div.col-xs-12
           div.form-group
             label(for='imagePath') Image URL
-            input.form-control(type='text', id='imagePath', formControlName='imagePath', placeholder='Enter image URL...')
+            input.form-control(type='text', id='imagePath', formControlName='imagePath', placeholder='Enter image URL...', #imagePath)
 
       div.row
         div.col-xs-12
-          img.img-responsive(src='')
+          img.img-responsive('[src]'='imagePath.value')
 
       div.row
         div.col-xs-12
