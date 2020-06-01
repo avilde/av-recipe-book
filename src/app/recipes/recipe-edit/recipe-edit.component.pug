@@ -4,7 +4,7 @@ div.row
       div.row
         div.col-xs-12
           button.btn.btn-success((click)='onFormSubmit()', '[disabled]'='!recipeForm.valid') Save
-          button.btn(type='button') Cancel
+          button.btn(type='button', (click)='onCancel()') Cancel
 
       div.row
         div.col-xs-12

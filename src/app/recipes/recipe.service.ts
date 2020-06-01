@@ -26,6 +26,10 @@ export class RecipeService {
     ]),
   ];
 
+  private triggerRecipeChanged() {
+    this.recipesChanged.next(this.getRecipes());
+  }
+
   public getRecipe(index: number) {
     return this.recipes[index];
   }
@@ -40,11 +44,16 @@ export class RecipeService {
 
   public addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
-    this.recipesChanged.next(this.getRecipes());
+    this.triggerRecipeChanged();
   }
 
   public updateRecipe(index: number, newRecipe: Recipe) {
     this.recipes[index] = newRecipe;
-    this.recipesChanged.next(this.getRecipes());
+    this.triggerRecipeChanged();
+  }
+
+  public deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.triggerRecipeChanged();
   }
 }

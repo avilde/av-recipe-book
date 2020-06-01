@@ -18,7 +18,7 @@
         li 
           a.clickable((click)='onEditRecipe()') Edit Recipe
         li 
-          a.clickable Delete Recipe
+          a.clickable((click)='onDeleteRecipe()') Delete Recipe
 
 .row.description
   .col-xs-12 {{ recipe.description }}
