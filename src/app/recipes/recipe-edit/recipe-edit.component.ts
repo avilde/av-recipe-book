@@ -61,7 +61,7 @@ export class RecipeEditComponent implements OnInit {
     });
   }
 
-  public onFormSubmit() {
+  onFormSubmit() {
     if (this.editMode) {
       this.recipeService.updateRecipe(this.id, this.recipeForm.value);
     } else {
@@ -70,11 +70,11 @@ export class RecipeEditComponent implements OnInit {
     this.onCancel();
   }
 
-  public get controls() {
+  get controls() {
     return (<FormArray>this.recipeForm.get('ingredients')).controls;
   }
 
-  public onAddIngredient() {
+  onAddIngredient() {
     (<FormArray>this.recipeForm.get('ingredients')).push(
       new FormGroup({
         name: new FormControl(null, Validators.required),
@@ -84,6 +84,10 @@ export class RecipeEditComponent implements OnInit {
         ]),
       })
     );
+  }
+
+  onDeleteIngredient(index: number) {
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
   }
 
   onCancel() {
