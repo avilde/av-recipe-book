@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 export class RecipeService {
-  constructor(private slService: ShoppingListService) {}
+  constructor(private shoppingListService: ShoppingListService) {}
 
   private recipes: Recipe[] = [
     new Recipe('Burger', 'Super tasty burger', '../../assets/burger.png', [
@@ -33,6 +33,14 @@ export class RecipeService {
   }
 
   public addIngredientsToShoppingList(ingredients: Ingredient[]) {
-    this.slService.addIngredients(ingredients);
+    this.shoppingListService.addIngredients(ingredients);
+  }
+
+  public addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe)
+  }
+
+  public updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
   }
 }
