@@ -10,50 +10,41 @@ export class RecipeService {
 
   constructor(private shoppingListService: ShoppingListService) {}
 
-  private recipes: Recipe[] = [
-    new Recipe('Burger', 'Super tasty burger', '../../assets/burger.png', [
-      new Ingredient('Meat', 1),
-      new Ingredient('Buns', 2),
-      new Ingredient('Cheese', 1),
-      new Ingredient('Lettuce', 1),
-      new Ingredient('Onion', 1),
-    ]),
-
-    new Recipe('Burger', 'Cheeseburger', '../../assets/cheeseburger.jpg', [
-      new Ingredient('Meat', 1),
-      new Ingredient('Buns', 2),
-      new Ingredient('Cheese', 1),
-    ]),
-  ];
+  private recipes: Recipe[] = [];
 
   private triggerRecipeChanged() {
     this.recipesChanged.next(this.getRecipes());
   }
 
-  public getRecipe(index: number) {
+  getRecipe(index: number) {
     return this.recipes[index];
   }
 
-  public getRecipes() {
+  getRecipes() {
     return [...this.recipes];
   }
 
-  public addIngredientsToShoppingList(ingredients: Ingredient[]) {
+  addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
   }
 
-  public addRecipe(recipe: Recipe) {
+  addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
     this.triggerRecipeChanged();
   }
 
-  public updateRecipe(index: number, newRecipe: Recipe) {
+  updateRecipe(index: number, newRecipe: Recipe) {
     this.recipes[index] = newRecipe;
     this.triggerRecipeChanged();
   }
 
-  public deleteRecipe(index: number) {
+  deleteRecipe(index: number) {
     this.recipes.splice(index, 1);
+    this.triggerRecipeChanged();
+  }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
     this.triggerRecipeChanged();
   }
 }
