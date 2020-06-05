@@ -6,12 +6,31 @@ div.row
 
       div.form-group
         label(for='email') E-mail
-        input.form-control(type='email', id='email', ngModel, name='email', required, email)
-      
+        input.form-control(
+          type='email', 
+          id='email', 
+          ngModel, 
+          name='email', 
+          required, 
+          email,
+          [disabled]='isLoading'
+        )
+
       div.form-group
         label(for='password') Password
-        input.form-control(type='password', id='password', ngModel, name='password', required, minlength='6')
+        input.form-control(
+          type='password', 
+          id='password', 
+          ngModel, 
+          name='password', 
+          required, 
+          minlength='6',
+          [disabled]='isLoading'
+        )
 
       div.row.buttons
-        button.btn.btn-primary(type='submit', [disabled]='!form.valid') {{ isLoginMode ? 'Login' : 'Sign Up' }}
-        button.btn(type='button', (click)='onSwitchMode()') {{ isLoginMode ? 'Go To Sign Up' : 'Go To Login' }}
+        button.btn.btn-primary(type='submit', [disabled]='!form.valid || isLoading') 
+          div(*ngIf='!isLoading') {{ isLoginMode ? 'Login' : 'Sign Up' }}
+          app-loader(*ngIf='isLoading')
+
+        button.btn(type='button', (click)='onSwitchMode()', [disabled]='isLoading') {{ isLoginMode ? 'Go To Sign Up' : 'Go To Login' }}
