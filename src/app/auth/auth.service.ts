@@ -39,7 +39,7 @@ export class AuthService {
 
   signUp(email: string, password: string) {
     return this.http
-      .post<AuthResponse>(`${AuthEndpoint.SIGN_IN}?key=${AUTH_API_KEY}`, {
+      .post<AuthResponse>(`${AuthEndpoint.SIGN_UP}?key=${AUTH_API_KEY}`, {
         email,
         password,
         returnSecureToken: true
