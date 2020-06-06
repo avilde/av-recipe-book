@@ -7,6 +7,8 @@
 ## Description
 Have learned VueJS and ReactJS now it is time to finally try Angular and see how it differs from other frameworks. This is a Udemy Angular course project still in progress but already added Netlify pipeline.
 
+To learn more than the course gives me, I chose to go with different tools - Stylus & PUG compared to what instructor chose (regular HTML and CSS files).
+
 #### [Demo](https://av-recipe-book.netlify.app/)
 
 ## Features
