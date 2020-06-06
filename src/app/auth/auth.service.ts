@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { EmailSignUpError } from './types';
 
 interface AuthResponse {
   kind: string;
@@ -24,6 +27,20 @@ export class AuthService {
         password,
         returnSecureToken: true,
       }
-    );
+    ).pipe(catchError(errorResponse => {
+      let errorMessage = 'An unknown error occured.';
+      console.log(errorResponse)
+      const errorCode = errorResponse?.error?.error?.message;
+
+      if (!errorCode) {
+        return throwError(errorMessage);
+      }
+
+      if (EmailSignUpError.hasOwnProperty(errorCode)) {
+        return throwError(EmailSignUpError[errorCode]);
+      } else {
+        return throwError(errorMessage);
+      }
+    }));
   }
 }

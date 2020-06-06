@@ -37,8 +37,7 @@ export class AuthComponent {
           form.reset();
         },
         (error) => {
-          console.log(error);
-          this.error = 'An error occured';
+          this.error = error;
           this.isLoading = false;
         }
       );
