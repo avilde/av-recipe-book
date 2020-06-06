@@ -4,6 +4,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { throwError, Subject, BehaviorSubject } from 'rxjs';
 import { AuthError, AuthEndpoint, AUTH_API_KEY } from './constants';
 import { User } from './user.module';
+import { Router } from '@angular/router';
 
 export interface AuthResponse {
   kind: string;
@@ -21,7 +22,7 @@ export interface AuthResponse {
 export class AuthService {
   user = new BehaviorSubject<User>(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   signUp(email: string, password: string) {
     return this.http
@@ -53,6 +54,11 @@ export class AuthService {
           this.handleAuthResponse(email, localId, idToken, +expiresIn);
         })
       );
+  }
+
+  logout() {
+    this.user.next(null);
+    this.router.navigate(['/auth']);
   }
 
   private handleAuthResponse(
