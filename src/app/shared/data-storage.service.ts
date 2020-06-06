@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from '../recipes/recipe.model';
 import { map, tap } from 'rxjs/operators';
+import { FIREBASE_STORAGE_URL, RECIPES_DB } from './constants';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
@@ -10,25 +11,22 @@ export class DataStorageService {
 
   storeRecipes() {
     const recipes = this.recipeService.getRecipes();
-    return this.http.put(
-      'https://av-recipes.firebaseio.com/recipes.json',
-      recipes
-    );
+    return this.http.put(`${FIREBASE_STORAGE_URL}/${RECIPES_DB}`, recipes);
   }
 
   fetchRecipes() {
     return this.http
-      .get<Recipe[]>('https://av-recipes.firebaseio.com/recipes.json')
+      .get<Recipe[]>(`${FIREBASE_STORAGE_URL}/${RECIPES_DB}`)
       .pipe(
-        map((recipes) => {
-          return recipes.map((recipe) => {
+        map(recipes => {
+          return recipes.map(recipe => {
             return {
               ...recipe,
-              ingredients: recipe.ingredients ? recipe.ingredients : [],
+              ingredients: recipe.ingredients ? recipe.ingredients : []
             };
           });
         }),
-        tap((recipes) => {
+        tap(recipes => {
           this.recipeService.setRecipes(recipes);
         })
       );

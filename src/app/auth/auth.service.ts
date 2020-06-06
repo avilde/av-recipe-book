@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError, Subject } from 'rxjs';
-import { AuthError, AuthEndpoint, AUTH_API_KEY } from './types';
+import { AuthError, AuthEndpoint, AUTH_API_KEY } from './constants';
 import { User } from './user.module';
 
 export interface AuthResponse {
