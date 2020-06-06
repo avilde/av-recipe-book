@@ -2,7 +2,7 @@
   display: inline-block
   position: relative
   width: 5rem
-  height: 1.5rem
+  height: 0.5rem
   
   & div
     display: inline-block
@@ -11,6 +11,7 @@
     width: 1rem
     background: white
     animation: loader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite
+    border-radius: 50%
 
   .one
     left: 0.5rem
@@ -27,8 +28,10 @@
 @keyframes loader
   0%
     top: 0rem
-    height: 4rem
+    height: 1.5rem
+    border-raidus: 30%
   
   50%, 100%
     top: 0.5rem
-    height: 2rem
+    height: 0.5rem
+    border-radius: 5%
