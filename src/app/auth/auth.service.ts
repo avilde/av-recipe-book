@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { AuthError, AuthEndpoint, AUTH_API_KEY } from './types';
@@ -27,22 +27,7 @@ export class AuthService {
         password,
         returnSecureToken: true
       })
-      .pipe(
-        catchError(errorResponse => {
-          let errorMessage = 'An unknown error occured.';
-          const errorCode = errorResponse?.error?.error?.message;
-
-          if (!errorCode) {
-            return throwError(errorMessage);
-          }
-
-          if (AuthError.hasOwnProperty(errorCode)) {
-            return throwError(AuthError[errorCode]);
-          } else {
-            return throwError(errorMessage);
-          }
-        })
-      );
+      .pipe(catchError(this.handleAuthErrorResponse));
   }
 
   login(email: string, password: string) {
@@ -53,6 +38,21 @@ export class AuthService {
         password,
         returnSecureToken: true
       }
-    );
+    ).pipe(catchError(this.handleAuthErrorResponse));
+  }
+
+  private handleAuthErrorResponse(errorResponse: HttpErrorResponse) {
+    let errorMessage = 'An unknown error occured.';
+    const errorCode = errorResponse?.error?.error?.message;
+
+    if (!errorCode) {
+      return throwError(errorMessage);
+    }
+
+    if (AuthError.hasOwnProperty(errorCode)) {
+      return throwError(AuthError[errorCode]);
+    } else {
+      return throwError(errorMessage);
+    }
   }
 }
