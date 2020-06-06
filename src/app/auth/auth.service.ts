@@ -2,7 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError, Subject, BehaviorSubject } from 'rxjs';
-import { AuthError, AuthEndpoint, AUTH_API_KEY } from './constants';
+import {
+  AuthError,
+  AuthEndpoint,
+  AUTH_API_KEY,
+  USER_DATA_STORAGE_KEY
+} from './constants';
 import { User } from './user.module';
 import { Router } from '@angular/router';
 
@@ -16,11 +21,19 @@ export interface AuthResponse {
   registered?: boolean;
 }
 
+interface UserData {
+  email: string;
+  id: string;
+  _token: string;
+  _tokenExpirationDate: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   user = new BehaviorSubject<User>(null);
+  tokenExpirationTimer: NodeJS.Timeout;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -56,9 +69,41 @@ export class AuthService {
       );
   }
 
+  autoLogin() {
+    const userData: UserData = JSON.parse(
+      localStorage.getItem(USER_DATA_STORAGE_KEY)
+    );
+    if (!userData) {
+      return;
+    }
+    const { email, id, _token, _tokenExpirationDate } = userData;
+    const loadedUser = new User(
+      email,
+      id,
+      _token,
+      new Date(_tokenExpirationDate)
+    );
+    if (loadedUser.token) {
+      this.user.next(loadedUser);
+      this.autoLogout(
+        new Date(userData._tokenExpirationDate).getTime() - new Date().getTime()
+      );
+    }
+  }
+
   logout() {
     this.user.next(null);
     this.router.navigate(['/auth']);
+    localStorage.removeItem(USER_DATA_STORAGE_KEY);
+    if (this.tokenExpirationTimer) {
+      clearTimeout(this.tokenExpirationTimer);
+    }
+  }
+
+  autoLogout(expirationDuration: number) {
+    this.tokenExpirationTimer = setTimeout(() => {
+      this.logout();
+    }, expirationDuration);
   }
 
   private handleAuthResponse(
@@ -75,6 +120,8 @@ export class AuthService {
     );
 
     this.user.next(user);
+    this.autoLogout(expiresIn * 1000);
+    localStorage.setItem(USER_DATA_STORAGE_KEY, JSON.stringify(user));
   }
 
   private handleAuthErrorResponse(errorResponse: HttpErrorResponse) {
