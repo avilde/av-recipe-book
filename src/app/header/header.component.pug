@@ -5,13 +5,17 @@ nav.navbar.navbar-default
 
     div.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li(routerLinkActive="active")
-          a(routerLink="/recipes") Recipes
-        li(routerLinkActive="active")
-          a(routerLink="/shopping-list") Shopping List
+        li(routerLinkActive='active')
+          a(routerLink='/auth', *ngIf='!isAuthenticated') Authenticate
+        li(routerLinkActive='active')
+          a(routerLink='/recipes', *ngIf='isAuthenticated') Recipes
+        li(routerLinkActive='active')
+          a(routerLink='/shopping-list') Shopping List
 
       ul.nav.navbar-nav.navbar-right
-        li.dropdown(appDropdown)
+        li.logout(*ngIf='isAuthenticated')
+          a Logout
+        li.dropdown(appDropdown, *ngIf='isAuthenticated')
           a.dropdown-toggle(role='button') Manage
             span.caret
           ul.dropdown-menu
