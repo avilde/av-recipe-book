@@ -38,4 +38,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onLogout() {
     this.authService.logout();
   }
+
+  toggleMenu() {
+    document.getElementById('navBar').classList.toggle('collapse');
+  }
 }

@@ -1,9 +1,14 @@
 nav.navbar.navbar-default
   div.container-fluid
     div.navbar-header
+      button.navbar-toggle((click)='toggleMenu()' type='button')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+
       a.navbar-brand(href='#') Recipe Book
 
-    div.collapse.navbar-collapse
+    div#navBar.collapse.navbar-collapse
       ul.nav.navbar-nav
         li(routerLinkActive='active')
           a(routerLink='/auth', *ngIf='!isAuthenticated') Authenticate
