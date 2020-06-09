@@ -40,6 +40,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   toggleMenu() {
+    /* bootstrap 3.4.1 needs jquery.collapse but replaced with simple hack */
     document.getElementById('navBar').classList.toggle('collapse');
   }
 }

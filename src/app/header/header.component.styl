@@ -6,3 +6,12 @@ h1
 ul.nav.navbar-nav.navbar-right
   a
     cursor: pointer
+
+#navBar.navbar-collapse
+  transition: all 0.3s ease-in-out
+  max-height: 400px
+  overflow: hidden
+
+  &.collapse
+    max-height: 0
+    display: block
