@@ -13,12 +13,15 @@ nav.navbar.navbar-default.header
 
     div#navBar.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li(routerLinkActive='active')
-          a(routerLink='/auth', *ngIf='!isAuthenticated') Authenticate
-        li(routerLinkActive='active')
-          a(routerLink='/recipes', *ngIf='isAuthenticated') Recipes
-        li(routerLinkActive='active')
-          a(routerLink='/shopping-list') Shopping List
+        li
+          a(routerLink='/auth', routerLinkActive='active', *ngIf='!isAuthenticated') 
+            span Authenticate
+        li
+          a(routerLink='/recipes', routerLinkActive='active', *ngIf='isAuthenticated')
+           span Recipes        
+        li
+          a(routerLink='/shopping-list', routerLinkActive='active') 
+            span Shopping List
 
       ul.nav.navbar-nav.navbar-right
         li.logout(*ngIf='isAuthenticated')

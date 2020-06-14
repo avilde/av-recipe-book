@@ -1,4 +1,4 @@
-@import "colors";
+@import 'colors'
 
 nav.header
   overflow: hidden
@@ -7,9 +7,23 @@ nav.header
 h1
   color: $color-primary
 
-ul.nav.navbar-nav.navbar-right
+ul.nav.navbar-nav 
   a
+    border-bottom: 0.25rem dotted white
     cursor: pointer
+    transition: border 0.3s ease-in
+
+    span
+      display: flex
+      transition: color 0.4s ease-in-out
+  
+  a.active
+    background-color: #dadada73
+    border-bottom-style: solid
+    border-bottom-color: $color-header-logo
+    
+    span
+      color: $color-header-logo 
 
 #navBar.navbar-collapse
   transition: all 0.3s ease-in-out
