@@ -15,7 +15,8 @@ div.row.auth
           name='email', 
           required, 
           email,
-          [disabled]='isLoading'
+          [disabled]='isLoading',
+          placeholder='Enter e-mail...'
         )
 
       div.form-group
@@ -27,11 +28,12 @@ div.row.auth
           name='password', 
           required, 
           minlength='6',
-          [disabled]='isLoading'
+          [disabled]='isLoading',
+          placeholder='Enter password...'
         )
 
       div.row.buttons
-        button.btn.btn-primary(type='submit', [disabled]='!form.valid || isLoading') 
+        button.btn.btn-success(type='submit', [disabled]='!form.valid || isLoading') 
           div(*ngIf='!isLoading') {{ isLoginMode ? 'Login' : 'Sign Up' }}
           app-loader(*ngIf='isLoading')
 
