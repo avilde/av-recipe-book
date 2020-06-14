@@ -15,6 +15,8 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   editMode = false;
   editItemIndex: number;
   editItem: Ingredient;
+  unitOfMeasure: UnitOfMeasure[] = Object.values(UnitOfMeasure);
+  unit: string;
 
   constructor(private shoppingListService: ShoppingListService) {}
 
@@ -58,9 +60,5 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   onDelete() {
     this.onClear();
     this.shoppingListService.deleteIngredient(this.editItemIndex);
-  }
-
-  get unitOfMeasure() {
-    return Object.values(UnitOfMeasure);
   }
 }

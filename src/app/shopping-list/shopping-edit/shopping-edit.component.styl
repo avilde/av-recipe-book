@@ -1,3 +1,5 @@
+@import 'colors'
+
 .row
   button 
     margin-right: 0.5rem
@@ -9,11 +11,12 @@
   position: relative
   height: 7rem
   margin-bottom: 1rem
+  display: flex
 
   &:before
     position: absolute
     display: flex
-    width: 50rem
+    width: 40rem
     height: 100%
     background-image: url('/assets/cooking-board-bar.png')
     background-position-x: -40rem
@@ -30,7 +33,16 @@ label
 label.white-text
   color: white
 
-input 
+input, select
   border: 0.0625rem solid $color-header-logo
 
-  
+#name
+  width: 15rem
+
+#unit, 
+#amount
+  width: 4rem
+
+@media(max-width: 60rem)
+  .row.add-ingredient::before
+        width: 30rem

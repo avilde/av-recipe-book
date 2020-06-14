@@ -14,8 +14,7 @@ div.row
             name='amount',
             required,
             pattern='^[0-9.]+[0-9]*$',
-            ngModel,
-            placeholder='Amount...'
+            ngModel
           )
         
         .col-sm-2.form-group
@@ -24,8 +23,7 @@ div.row
             autocomplete='off',
             name='unit',
             required,
-            ngModel,
-            placeholder='Unit...'
+            ngModel
           )
             option(*ngFor='let unit of unitOfMeasure', [value]="unit") {{ unit }}
 
