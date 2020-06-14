@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { Ingredient } from 'src/app/shared/ingredient.model';
+import { Ingredient, UnitOfMeasure } from 'src/app/shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list.service';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -37,14 +37,14 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   }
 
   onUpsertIngredient(form: NgForm) {
-    const { name, amount } = form.value;
+    const { name, amount, unit } = form.value;
     if (this.editMode) {
       this.shoppingListService.updateIngredient(
         this.editItemIndex,
-        new Ingredient(name, amount)
+        new Ingredient(name, amount, unit)
       );
     } else {
-      this.shoppingListService.addIngredient(new Ingredient(name, amount));
+      this.shoppingListService.addIngredient(new Ingredient(name, amount, unit));
     }
     this.onClear();
   }
@@ -57,5 +57,9 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   onDelete() {
     this.onClear();
     this.shoppingListService.deleteIngredient(this.editItemIndex);
+  }
+
+  get unitOfMeasure() {
+    return Object.values(UnitOfMeasure);
   }
 }

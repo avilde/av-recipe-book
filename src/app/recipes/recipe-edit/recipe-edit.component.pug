@@ -40,10 +40,12 @@ div.row
             '[formGroupName]'='i',
             *ngFor='let ingredientControl of controls; let i = index'
           )
-            div.col-xs-8
-              input.form-control(type='text', formControlName='name')
             div.col-xs-2
               input.form-control(type='number', formControlName='amount')
+            div.col-xs-3
+              input.form-control(type='text', formControlName='unit')
+            div.col-xs-5
+              input.form-control(type='text', formControlName='name')
             div.col-xs-2
               button.btn.btn-danger((click)='onDeleteIngredient(i)', type='button') X
       

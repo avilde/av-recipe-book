@@ -6,6 +6,29 @@ div.row
     ) 
       label Add Ingredient
       div.row.add-ingredient
+        .col-sm-2.form-group
+          label(for='amount') Amount
+          input#amount.form-control(
+            type='number', 
+            autocomplete='off',
+            name='amount',
+            required,
+            pattern='^[1-9]+[0-9]*$',
+            ngModel,
+            placeholder='Amount...'
+          )
+        
+        .col-sm-2.form-group
+          label(for='unit') Unit
+          select#unit.form-control(
+            autocomplete='off',
+            name='unit',
+            required,
+            ngModel,
+            placeholder='Unit...'
+          )
+            option(*ngFor='let unit of unitOfMeasure; let i = index' value="unit") {{ unit }}
+
         div.col-sm-5.form-group
           label(for='name') Name
           input#name.form-control(
@@ -15,18 +38,6 @@ div.row
             required,
             ngModel,
             placeholder='Enter ingredient name...'
-          )
-
-        .col-sm-2.form-group
-          label.white-text(for='amount') Amount
-          input#amount.form-control(
-            type='number', 
-            autocomplete='off',
-            name='amount',
-            required,
-            pattern='^[1-9]+[0-9]*$',
-            ngModel,
-            placeholder='Amount...'
           )
       .row
         .col-xs-12
