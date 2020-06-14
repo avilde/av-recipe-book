@@ -1,37 +1,59 @@
-.loader
-  display: inline-block
+@import 'colors'
+
+.loader 
+  display: flex
+  justify-content: center
+  align-items: center
   position: relative
   width: 5rem
+  height: 1rem
+  margin-left: auto
+  margin-right: auto
+
+.loader div
+  position: absolute
+  width: 0.5rem
   height: 0.5rem
-  
-  & div
-    display: inline-block
-    position: absolute
-    left: 0.5rem
-    width: 1rem
-    background: white
-    animation: loader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite
-    border-radius: 50%
+  border-radius: 50%
+  background: $color-primary
+  animation-timing-function: cubic-bezier(0, 1, 1, 0)
 
-  .one
-    left: 0.5rem
-    animation-delay: -0.24s
+.loader div:nth-child(1)
+  left: 0.5rem;
+  animation: loader-animation-one 0.6s infinite;
 
-  .two
-    left: 2rem
-    animation-delay: -0.12s
-  
-  .three
-    left: 3.5rem
-    animation-delay: 0
+.loader div:nth-child(2)
+  left: 0.5rem;
+  animation: loader-animation-two 0.6s infinite;
 
-@keyframes loader
-  0%
-    top: 0rem
-    height: 1.5rem
-    border-raidus: 30%
+.loader div:nth-child(3)
+  left: 2rem;
+  animation: loader-animation-two 0.6s infinite;
+
+.loader div:nth-child(4) 
+  left: 3.5rem;
+  animation: loader-animation-three 0.6s infinite;
+
+@keyframes loader-animation-one
+  0% 
+    transform: scale(0)
   
-  50%, 100%
-    top: 0.5rem
-    height: 0.5rem
-    border-radius: 5%
+  100% 
+    transform: scale(1)
+  
+
+@keyframes loader-animation-three 
+  0% 
+    transform: scale(1)
+
+  100% 
+    transform: scale(0)
+  
+
+@keyframes loader-animation-two
+  0% 
+    transform: translate(0, 0);
+  
+  100% 
+    transform: translate(1.5rem, 0);
+  

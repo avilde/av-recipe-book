@@ -10,7 +10,11 @@ div.row.auth
         (click)='loginWithTestUser()', 
         [disabled]='isLoading',
         *ngIf="isLoginMode"
-      ) Login With Test User
+
+      )           
+        div Login With Test User
+
+      app-loader(*ngIf='isLoading')
 
       div.form-group
         label(for='email') E-mail
@@ -40,9 +44,8 @@ div.row.auth
 
       div.row.buttons
         button.btn.btn-success(type='submit', [disabled]='!form.valid || isLoading') 
-          div(*ngIf='!isLoading') {{ isLoginMode ? 'Login' : 'Sign Up' }}
-          app-loader(*ngIf='isLoading')
-        
+          div {{ isLoginMode ? 'Login' : 'Sign Up' }}
+
         button.btn(
           type='button', 
           (click)='onSwitchMode()', 
