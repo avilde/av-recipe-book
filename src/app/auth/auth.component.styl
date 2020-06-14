@@ -1,3 +1,5 @@
+@import 'colors'
+
 div.row.buttons
   display: flex
   justify-content: center
@@ -7,3 +9,18 @@ div.row.buttons
 
     &:last-of-type
       margin-right: 0
+
+.auth
+  border-radius: 0.5rem
+  padding-top: 10%
+  height: 30rem
+  justify-content: center
+  align-content: center
+  background-image: url('/assets/cooking-board.png')
+
+  form
+    input
+      border: 0.0625rem solid $color-header-logo
+
+      &:focus
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 0.5rem $color-header-logo-shadow
