@@ -1,12 +1,15 @@
-nav.navbar.navbar-default
-  div.container-fluid
+nav.navbar.navbar-default.header
+  
+  div.container-fluid  
     div.navbar-header
+
       button.navbar-toggle((click)='toggleMenu()' type='button')
         span.icon-bar
         span.icon-bar
         span.icon-bar
-
-      a.navbar-brand(href='#') Recipe Book
+      a.logo(href='#')
+        img.header-img(src='./assets/logo.png') 
+        span Recipe Book
 
     div#navBar.collapse.navbar-collapse
       ul.nav.navbar-nav

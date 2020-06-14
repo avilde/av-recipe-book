@@ -1,5 +1,9 @@
 @import "colors";
 
+nav.header
+  overflow: hidden
+  height: 100%
+
 h1
   color: $color-primary
 
@@ -9,9 +13,34 @@ ul.nav.navbar-nav.navbar-right
 
 #navBar.navbar-collapse
   transition: all 0.3s ease-in-out
-  max-height: 400px
+  max-height: 25rem
   overflow: hidden
 
   &.collapse
     max-height: 0
     display: block
+
+a.logo
+  display: flex
+  text-decoration: none
+  align-items: center
+  justify-content: flex-start
+  color: $color-text-default
+  margin: 0 1rem
+  height: 3.125rem
+
+  img 
+    max-height: 2.5rem
+    transform: rotate(-5deg)
+
+  span 
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: 1.5rem
+    font-weight: bold
+    color: $color-header-logo
+    text-shadow: 1px 1px $color-header-logo-shadow
+    margin: 0 0.5rem
+    transform: rotate(-3deg)
