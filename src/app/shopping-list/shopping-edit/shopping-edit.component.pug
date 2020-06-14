@@ -1,29 +1,32 @@
-.row
-  .col-xs-12
+div.row
+  div.col-xs-12
     form(
       #form='ngForm',
       (ngSubmit)='onUpsertIngredient(form)'
-    )
-      .row
-        .col-sm-5.form-group
+    ) 
+      label Add Ingredient
+      div.row.add-ingredient
+        div.col-sm-5.form-group
           label(for='name') Name
           input#name.form-control(
             type='text', 
             autocomplete='off', 
             name='name',
             required,
-            ngModel
+            ngModel,
+            placeholder='Enter ingredient name...'
           )
 
         .col-sm-2.form-group
-          label(for='amount') Amount
+          label.white-text(for='amount') Amount
           input#amount.form-control(
             type='number', 
             autocomplete='off',
             name='amount',
             required,
             pattern='^[1-9]+[0-9]*$',
-            ngModel
+            ngModel,
+            placeholder='Amount...'
           )
       .row
         .col-xs-12
@@ -36,7 +39,7 @@
             (click)='onDelete()',
             *ngIf='editMode'
           ) Delete
-          button.btn.btn-primary(
+          button.btn(
             type='button', 
             (click)='onClear()'
           ) Clear

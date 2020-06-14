@@ -1,10 +1,11 @@
-.row
-  .col-xs-10
+div.row
+  div.col-xs-10
     app-shopping-edit
 
 hr
 
-.row
+div.row
+  label Ingredient list
   ul.list-group
     a.list-group-item.shopping-list-item(
       *ngFor='let ingredient of ingredients; let i = index',
