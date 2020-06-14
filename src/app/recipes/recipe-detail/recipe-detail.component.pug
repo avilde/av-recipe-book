@@ -25,5 +25,8 @@
 
 .row
   .col-xs-12
-    ul.list-group
-      li.list-group-item(*ngFor="let ingredient of recipe.ingredients") {{ ingredient.amount }} x {{ ingredient.unit }} {{ ingredient.name }}
+    ul.list-group Ingredients
+      li.list-group-item(*ngFor="let ingredient of recipe.ingredients") 
+        span {{ ingredient.amount }} 
+        span {{ ingredient.unit }} 
+        span {{ ingredient.name }}

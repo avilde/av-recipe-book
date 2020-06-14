@@ -1,3 +1,5 @@
+@import 'colors'
+
 .btn-group
   button.recipe-detail
     span.caret
@@ -8,3 +10,24 @@
 
 .row.description
   margin: 1rem 0
+  font-size: 0.85rem
+  
+  & > div
+    padding: 0
+
+ul
+  font-size: 0.75rem
+  color: $color-primary
+
+  li.list-group-item
+    border: none
+    font-size: 1rem
+    color: black
+
+    &::before
+      content: "•"
+      padding-right: 0.5rem
+      color: $color-secondary
+
+    span
+      font-size: 0.825rem
