@@ -1,3 +1,5 @@
+@import 'colors'
+
 .shopping-list-item
   cursor: pointer
   max-width: 50.5rem
@@ -5,3 +7,26 @@
 .no-items
   font-size: 0.75rem
   color: gray
+
+ul
+  font-size: 0.75rem
+  color: $color-primary
+
+  li.list-group-item
+    border: none
+    font-size: 1rem
+    color: $color-primary-text-default
+    width: fit-content
+    border-radius: 0.25rem
+
+    &:hover
+      font-weight: bold
+      background-color: $color-header-active-background
+
+    &::before
+      content: "•"
+      padding-right: 0.5rem
+      color: $color-secondary
+
+    span
+      font-size: 0.825rem

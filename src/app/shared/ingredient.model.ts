@@ -7,7 +7,8 @@ export enum UnitOfMeasure {
   LITER = 'l',
   DECILITER = 'dl',
   GRAM = 'g',
-  KILOGRAM = 'kg'
+  KILOGRAM = 'kg',
+  PIECE = 'x'
 }
 
 export class Ingredient {

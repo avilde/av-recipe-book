@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.pug',
-  styleUrls: ['./auth.component.styl']
+  styleUrls: ['./auth.component.styl'],
 })
 export class AuthComponent {
   isLoginMode = true;
@@ -37,12 +37,29 @@ export class AuthComponent {
     }
 
     authResponseObservable.subscribe(
-      response => {
+      (response) => {
         this.isLoading = false;
         form.reset();
         this.router.navigate(['/recipes']);
       },
-      error => {
+      (error) => {
+        this.error = error;
+        this.isLoading = false;
+      }
+    );
+  }
+
+  loginWithTestUser() {
+    let authResponseObservable: Observable<AuthResponse>;
+
+    this.isLoading = true;
+    authResponseObservable = this.authService.login('test@test.test', 'test@test.test');
+    authResponseObservable.subscribe(
+      (response) => {
+        this.isLoading = false;
+        this.router.navigate(['/recipes']);
+      },
+      (error) => {
         this.error = error;
         this.isLoading = false;
       }
