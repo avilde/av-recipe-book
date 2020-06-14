@@ -7,8 +7,8 @@ nav.header
 h1
   color: $color-primary
 
-ul.nav.navbar-nav 
-  a
+ul.nav
+  a:not(.dropdown-toggle)
     border-bottom: 0.25rem dotted white
     cursor: pointer
     transition: border 0.3s ease-in
@@ -58,3 +58,18 @@ a.logo
     text-shadow: 1px 1px $color-header-logo-shadow
     margin: 0 0.5rem
     transform: rotate(-3deg)
+
+li.logout 
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  
+  a
+    display: flex
+    align-items: center
+    justify-content: center
+
+    img.logout
+      margin-right: 0.5rem
+      max-width: 1rem
+      max-height: 1rem

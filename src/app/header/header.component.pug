@@ -2,7 +2,6 @@ nav.navbar.navbar-default.header
   
   div.container-fluid  
     div.navbar-header
-
       button.navbar-toggle((click)='toggleMenu()' type='button')
         span.icon-bar
         span.icon-bar
@@ -25,12 +24,6 @@ nav.navbar.navbar-default.header
 
       ul.nav.navbar-nav.navbar-right
         li.logout(*ngIf='isAuthenticated')
-          a((click)='onLogout()') Logout
-        li.dropdown(appDropdown, *ngIf='isAuthenticated')
-          a.dropdown-toggle(role='button') Manage
-            span.caret
-          ul.dropdown-menu
-            li
-              a((click)='onSaveData()') Save Data
-            li
-              a((click)='onFetchData()') Fetch Data
+          a((click)='onLogout()')
+            img.logout(src='./assets/logout.png')
+            span Logout
