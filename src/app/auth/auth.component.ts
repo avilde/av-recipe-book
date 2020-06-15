@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent {
   isLoginMode = true;
-  isLoading = true;
+  isLoading = false;
   error = '';
 
   constructor(private authService: AuthService, private router: Router) {}
