@@ -18,9 +18,7 @@
     display: flex
     width: 40rem
     height: 100%
-    background-image: url('/assets/cooking-board-bar.png')
-    background-position-x: -40rem
-    filter: blur(0.0625rem)
+    border: 0.125rem solid $color-header-logo
     border-radius: 0.5rem
     z-index: 0
 
@@ -35,6 +33,9 @@ label.white-text
 
 input, select
   border: 0.0625rem solid $color-header-logo
+
+input:focus, select:focus
+  border-color: $color-header-logo-shadow
 
 #name
   width: 15rem
