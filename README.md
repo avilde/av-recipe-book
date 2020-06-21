@@ -1,6 +1,6 @@
-# AV Recipe Book Angular9 Project (In progress...)
+# AV Recipe Book Angular9 Project
 
-![AV Recipe Book Logo](./src/assets/burger.png "AV RecipeBook Cover Cover")
+![AV Recipe Book Logo](./src/assets/tomatos.png "AV RecipeBook Cover Cover")
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a7da9937-1e45-4a3c-9323-d1d5f07a2ed8/deploy-status)](https://app.netlify.com/sites/av-recipe-book/deploys)
 
@@ -12,29 +12,17 @@ To learn more than the course gives me, I chose to go with different tools - Sty
 #### [Demo](https://av-recipe-book.netlify.app/)
 
 ## Features
-- routing
-- creating recipes & ingredients
+- create shopping list
+- create recipes & ingredients
+- save & retrieve your own recipes
 
 ## Technologies Used
-- Angular9
 - Angular-CLI 9.1.1
+- with Typescript, PUG & Stylus
 
-## Development server
+## Clone & Run Locally
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
+Run `ng serve` for a dev server -> `http://localhost:4200/`
 ## How to contribute?
 Contact me through mail `vilde.andris@gmail.com` with suggestions.
 
