@@ -19,6 +19,10 @@ export class DataStorageService {
       .get<Recipe[]>(`${FIREBASE_STORAGE_URL}/${RECIPES_DB}`)
       .pipe(
         map(recipes => {
+          if (!recipes) {
+            return [];
+          }
+          
           return recipes.map(recipe => {
             return {
               ...recipe,
