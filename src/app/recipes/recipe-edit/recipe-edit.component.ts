@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { RecipeService } from '../recipe.service';
+import { UnitOfMeasure } from 'src/app/shared/ingredient.model';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -12,6 +13,8 @@ export class RecipeEditComponent implements OnInit {
   id: number;
   editMode = false;
   recipeForm: FormGroup;
+  unitOfMeasure: UnitOfMeasure[];
+  unit: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,6 +23,7 @@ export class RecipeEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.unitOfMeasure = Object.values(UnitOfMeasure);
     this.route.params.subscribe((params: Params) => {
       this.id = +params.id;
       this.editMode = !!params.id;
@@ -78,7 +82,7 @@ export class RecipeEditComponent implements OnInit {
   onAddIngredient() {
     (<FormArray>this.recipeForm.get('ingredients')).push(
       new FormGroup({
-        amount: new FormControl(null, [
+        amount: new FormControl(1, [
           Validators.required,
           Validators.pattern(/^[1-9]+[0-9]*$/),
         ]),

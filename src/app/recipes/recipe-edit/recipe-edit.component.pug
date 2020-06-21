@@ -10,13 +10,13 @@ div.row
         div.col-xs-12
           div.form-group
             label(for='name') Name
-            input.form-control(type='text', id='name', formControlName='name', placeholder='Enter recipe name...')
+            input.form-control(type='text' id='name' formControlName='name' placeholder='Enter recipe name...')
 
       div.row
         div.col-xs-12
           div.form-group
             label(for='imagePath') Image URL
-            input.form-control(type='text', id='imagePath', formControlName='imagePath', placeholder='Enter image URL...', #imagePath)
+            input.form-control(type='text' id='imagePath' formControlName='imagePath' placeholder='Enter image URL...', #imagePath)
 
       div.row
         div.col-xs-12
@@ -33,7 +33,7 @@ div.row
             formControlName='description',
             placeholder='Enter recipe description...'
           )
-          
+
       div.row.ingredients
         div.col-xs-12(formArrayName='ingredients')
           div.row(
@@ -41,16 +41,22 @@ div.row
             *ngFor='let ingredientControl of controls; let i = index'
           )
             div.col-xs-2
-              input.form-control(type='number', formControlName='amount')
+              input#amount.form-control(type='number' formControlName='amount')
             div.col-xs-3
-              input.form-control(type='text', formControlName='unit')
+              select#unit.form-control(
+                autocomplete='off',
+                name='unit',
+                required,
+                formControlName="unit"
+              )
+                option(*ngFor='let unit of unitOfMeasure', [value]="unit") {{ unit }}
             div.col-xs-5
-              input.form-control(type='text', formControlName='name')
+              input#name.form-control(type='text' formControlName='name', placeholder='Enter ingredient...')
             div.col-xs-2
-              button.btn.btn-danger((click)='onDeleteIngredient(i)', type='button') X
-      
+              button.btn.btn-danger((click)='onDeleteIngredient(i)' type='button') X
+
       hr
 
       div.row
         div.col-xs-12
-          button.btn.btn-success((click)='onAddIngredient()', type='button') Add Ingredient
+          button.btn.btn-success((click)='onAddIngredient()' type='button') Add Ingredient
