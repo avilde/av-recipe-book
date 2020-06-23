@@ -22,7 +22,7 @@ export class RecipeEditComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.unitOfMeasure = Object.values(UnitOfMeasure);
     this.route.params.subscribe((params: Params) => {
       this.id = +params.id;
