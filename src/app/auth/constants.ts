@@ -15,3 +15,5 @@ export enum AuthEndpoint {
 export const AUTH_API_KEY = 'AIzaSyCYS1u6E_00dJLkcBLVmGgrC9oZqN6st1s';
 
 export const USER_DATA_STORAGE_KEY = 'user-data';
+
+export const TEST_USER = 'test@test.test';

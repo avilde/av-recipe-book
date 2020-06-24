@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService, AuthResponse } from './auth.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { TEST_USER } from './constants';
 
 @Component({
   selector: 'app-auth',
@@ -37,10 +38,11 @@ export class AuthComponent {
     }
 
     authResponseObservable.subscribe(
-      (response) => {
-        this.isLoading = false;
+      () => {
         form.reset();
-        this.router.navigate(['/recipes']);
+        this.router.navigate(['/recipes']).then(() => {
+          this.isLoading = false;
+        });
       },
       (error) => {
         this.error = error;
@@ -53,11 +55,12 @@ export class AuthComponent {
     let authResponseObservable: Observable<AuthResponse>;
 
     this.isLoading = true;
-    authResponseObservable = this.authService.login('test@test.test', 'test@test.test');
+    authResponseObservable = this.authService.login(TEST_USER, TEST_USER);
     authResponseObservable.subscribe(
-      (response) => {
-        this.isLoading = false;
-        this.router.navigate(['/recipes']);
+      () => {
+        this.router.navigate(['/recipes']).then(() => {
+          this.isLoading = false;
+        });
       },
       (error) => {
         this.error = error;
