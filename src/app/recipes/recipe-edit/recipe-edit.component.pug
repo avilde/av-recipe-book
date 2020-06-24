@@ -55,8 +55,13 @@ div.row
             div.col-xs-2
               button.btn.btn-danger((click)='onDeleteIngredient(i)' type='button') X
 
+      div.row
+        div.col-xs-12
+          button.btn.btn-primary.add-ingredient((click)='onAddIngredient()' type='button') Add Ingredient
+
       hr
 
       div.row
         div.col-xs-12
-          button.btn.btn-success((click)='onAddIngredient()' type='button') Add Ingredient
+          button.btn.btn-success((click)='onFormSubmit()', '[disabled]'='!recipeForm.valid') Save
+          button.btn(type='button', (click)='onCancel()') Cancel
