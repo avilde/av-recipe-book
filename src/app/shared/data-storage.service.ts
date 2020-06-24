@@ -7,7 +7,11 @@ import { FIREBASE_STORAGE_URL, RECIPES_DB } from './constants';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
-  constructor(private http: HttpClient, private recipeService: RecipeService) {}
+  constructor(private http: HttpClient, private recipeService: RecipeService) {
+    recipeService.recipesChanged.subscribe(() => {
+      this.storeRecipes();
+    })
+  }
 
   storeRecipes() {
     const recipes = this.recipeService.getRecipes();
