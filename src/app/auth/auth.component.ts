@@ -19,6 +19,7 @@ export class AuthComponent {
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
+    this.error = '';
   }
 
   onSubmit(form: NgForm) {
@@ -30,6 +31,7 @@ export class AuthComponent {
     let authResponseObservable: Observable<AuthResponse>;
 
     this.isLoading = true;
+    this.error = '';
 
     if (this.isLoginMode) {
       authResponseObservable = this.authService.login(email, password);
@@ -55,6 +57,7 @@ export class AuthComponent {
     let authResponseObservable: Observable<AuthResponse>;
 
     this.isLoading = true;
+    this.error = '';
     authResponseObservable = this.authService.login(TEST_USER, TEST_USER);
     authResponseObservable.subscribe(
       () => {
