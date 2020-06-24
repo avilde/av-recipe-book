@@ -6,11 +6,28 @@
   justify-content: space-between
   align-items: center
   cursor: pointer
+  min-height: 4rem
+  max-height: 4rem
+  overflow: hidden
+  
+  .list-group-item-heading,
+  .list-group-item-text
+    height: 1.5rem
+    line-height: 1.5rem
+    width: 70vw
+    max-width: 40rem
+    text-overflow: ellipsis
+    overflow: hidden
+    white-space: pre
 
   .recipe-list-img
     max-height: 3rem
-    border-radius: 0.5rem;
+    max-width 3rem
+    border-radius: 0.25rem
 
   &.active
     background-color: $color-secondary
     border-color: $color-primary
+
+  .list-group-item-text
+    font-size: 0.75rem
