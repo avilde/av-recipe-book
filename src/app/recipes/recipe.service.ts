@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
+  recipesSet = new Subject<Recipe[]>();
 
   constructor(private shoppingListService: ShoppingListService) {}
 
@@ -45,6 +46,6 @@ export class RecipeService {
 
   setRecipes(recipes: Recipe[]) {
     this.recipes = recipes;
-    this.triggerRecipeChanged();
+    this.recipesSet.next(recipes);
   }
 }
