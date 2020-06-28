@@ -6,7 +6,8 @@ import {
   AuthError,
   AuthEndpoint,
   AUTH_API_KEY,
-  USER_DATA_STORAGE_KEY
+  USER_DATA_STORAGE_KEY,
+  TEST_USER,
 } from './constants';
 import { User } from './user.module';
 import { Router } from '@angular/router';
@@ -29,10 +30,11 @@ interface UserData {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   user = new BehaviorSubject<User>(null);
+  isTestUser: boolean = false;
   tokenExpirationTimer: NodeJS.Timeout;
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -42,11 +44,11 @@ export class AuthService {
       .post<AuthResponse>(`${AuthEndpoint.SIGN_UP}?key=${AUTH_API_KEY}`, {
         email,
         password,
-        returnSecureToken: true
+        returnSecureToken: true,
       })
       .pipe(
         catchError(this.handleAuthErrorResponse),
-        tap(responseData => {
+        tap((responseData) => {
           const { email, localId, idToken, expiresIn } = responseData;
           this.handleAuthResponse(email, localId, idToken, +expiresIn);
         })
@@ -58,11 +60,11 @@ export class AuthService {
       .post<AuthResponse>(`${AuthEndpoint.SIGN_IN}?key=${AUTH_API_KEY}`, {
         email,
         password,
-        returnSecureToken: true
+        returnSecureToken: true,
       })
       .pipe(
         catchError(this.handleAuthErrorResponse),
-        tap(responseData => {
+        tap((responseData) => {
           const { email, localId, idToken, expiresIn } = responseData;
           this.handleAuthResponse(email, localId, idToken, +expiresIn);
         })
@@ -84,6 +86,7 @@ export class AuthService {
       new Date(_tokenExpirationDate)
     );
     if (loadedUser.token) {
+      this.isTestUser = email === TEST_USER;
       this.user.next(loadedUser);
       this.autoLogout(
         new Date(userData._tokenExpirationDate).getTime() - new Date().getTime()
@@ -95,13 +98,16 @@ export class AuthService {
     this.user.next(null);
     this.router.navigate(['/auth']);
     localStorage.removeItem(USER_DATA_STORAGE_KEY);
+    this.isTestUser = false;
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);
     }
   }
 
   autoLogout(expirationDuration: number) {
-    console.info(`User will be logged out after ${expirationDuration / 1000} seconds`);
+    console.info(
+      `User will be logged out after ${expirationDuration / 1000} seconds`
+    );
     this.tokenExpirationTimer = setTimeout(() => {
       this.logout();
     }, expirationDuration);
@@ -123,10 +129,11 @@ export class AuthService {
     this.user.next(user);
     this.autoLogout(expiresIn * 1000);
     localStorage.setItem(USER_DATA_STORAGE_KEY, JSON.stringify(user));
+    this.isTestUser = email === TEST_USER;
   }
 
   private handleAuthErrorResponse(errorResponse: HttpErrorResponse) {
-    let errorMessage = 'An unknown error occured.';
+    let errorMessage = 'An unknown error occurred.';
     const errorCode = errorResponse?.error?.error?.message;
 
     if (!errorCode) {

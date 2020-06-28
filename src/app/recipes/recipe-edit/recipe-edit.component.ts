@@ -50,7 +50,7 @@ export class RecipeEditComponent implements OnInit {
                 Validators.required,
                 Validators.pattern(/^[1-9]+[0-9]*$/),
               ]),
-              unit: new FormControl(ingredient.unit, [Validators.required]),
+              unit: new FormControl(ingredient.unit, Validators.required),
               name: new FormControl(ingredient.name, Validators.required),
             })
           );
