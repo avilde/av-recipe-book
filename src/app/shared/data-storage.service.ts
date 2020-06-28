@@ -16,10 +16,12 @@ export class DataStorageService {
   ) {
     recipeService.recipesChanged.subscribe((recipes) => {
       if (this.authService.isTestUser) {
-        console.info(`Logged in user is a test user (${TEST_USER}) - recipe changes will not be persisted`);
+        console.info(
+          `Logged in user is a test user (${TEST_USER}) - recipe changes will not be persisted`
+        );
         return;
       }
-      
+
       this.storeRecipes(recipes);
     });
   }
