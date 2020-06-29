@@ -15,7 +15,7 @@
     height: 1.5rem
     line-height: 1.5rem
     width: 70vw
-    max-width: 40rem
+    max-width: 24rem
     text-overflow: ellipsis
     overflow: hidden
     white-space: pre
@@ -31,3 +31,25 @@
 
   .list-group-item-text
     font-size: 0.75rem
+
+  .title, .image
+    display: flex
+
+  .title
+    overflow: hidden
+    flex-direction: column
+    flex: 1
+
+  .image
+    flex: 0
+  
+  .image , .image img
+    margin: 0
+    padding: 0
+
+
+@media(max-width: 60rem)
+  .recipe-list-item
+    .list-group-item-heading,
+    .list-group-item-text
+      max-width: 40rem
