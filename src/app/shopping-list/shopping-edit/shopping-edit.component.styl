@@ -1,7 +1,7 @@
 @import 'colors'
 
 .row
-  button 
+  button
     margin-right: 0.5rem
 
     &:last-of-type
@@ -16,7 +16,7 @@
   &:before
     position: absolute
     display: flex
-    width: 40rem
+    width: 95%
     height: 100%
     border: 0.125rem solid $color-header-logo
     border-radius: 0.5rem
@@ -28,9 +28,6 @@ form
 label
   margin-top: 1rem
 
-label.white-text
-  color: white
-
 input, select
   border: 0.0625rem solid $color-header-logo
 
@@ -38,14 +35,27 @@ input:focus, select:focus
   border-color: $color-header-logo-shadow
 
 #name
-  width: 15rem
- 
+  width: 90%
+
 #amount
   width: 4rem
 
 #unit
   width: 5rem
 
-@media(max-width: 60rem)
-  .row.add-ingredient::before
-        width: 30rem
+.form-group.name
+  display: flex
+  flex-direction: column
+  flex: 1
+  min-width: 10rem
+  margin-right: 2rem
+
+@media (max-width: 767px)
+  .row.add-ingredient
+    margin: 0.5rem 0
+    display: flex
+    flex-wrap: wrap
+    height: auto
+
+    &::before
+      width: 100%

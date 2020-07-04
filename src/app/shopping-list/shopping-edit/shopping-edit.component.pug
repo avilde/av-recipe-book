@@ -28,8 +28,8 @@ div.row
           )
             option(*ngFor='let unit of unitOfMeasure', [value]="unit") {{ unit }}
 
-        .col-sm-5.form-group
-          label.white-text(for='name') Name
+        .col-sm-5.form-group.name
+          label(for='name') Name
           input#name.form-control(
             type='text', 
             autocomplete='off', 
