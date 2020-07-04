@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.authService.autoLogin();
     this.authService.user.subscribe((user) => {
-      console.log(user);
       if (user) {
         this.isTestUser = user.email === TEST_USER;
       } else {

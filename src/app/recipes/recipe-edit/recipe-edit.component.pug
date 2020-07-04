@@ -36,7 +36,8 @@ div.row
 
       div.row.ingredients
         div.col-xs-12(formArrayName='ingredients')
-          div.row(
+          label Ingredients
+          div.row.ingredients-list(
             '[formGroupName]'='i',
             *ngFor='let ingredientControl of controls; let i = index'
           )
