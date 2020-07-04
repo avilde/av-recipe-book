@@ -7,7 +7,7 @@ nav.navbar.navbar-default.header
         span.icon-bar
         span.icon-bar
       a.logo(href='#')
-        img.header-img(src='./assets/logo.png' loading="lazy" alt='') 
+        img.header-img(src='./assets/logo.png' loading="lazy" alt='' height="50" width="50") 
         span Recipe Book
 
     div#navBar.collapse.navbar-collapse
@@ -25,5 +25,5 @@ nav.navbar.navbar-default.header
       ul.nav.navbar-nav.navbar-right
         li.logout(*ngIf='isAuthenticated')
           a((click)='onLogout()')
-            img.logout(src='./assets/logout.png')
+            img.logout(src='./assets/logout.png' loading="lazy" alt='' height="16" width="16")
             span Logout
