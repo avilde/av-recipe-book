@@ -1,6 +1,6 @@
-a.list-group-item.recipe-list-item([routerLink]="[index]", routerLinkActive="active")
-    div.title
-      h4.list-group-item-heading {{ recipe.name }}
-      p.list-group-item-text.small {{ recipe.description }}
-    div.image
-      img.img-responsive([src]='recipe.imagePath', alt='{{ recipe.name }}').recipe-list-img
+a.list-group-item.recipe-list-item([routerLink]="[index]" routerLinkActive="active")
+  div.title
+    h4.list-group-item-heading {{ recipe.name }}
+    p.list-group-item-text.small {{ recipe.description }}
+  div.image
+    img.img-responsive([src]='recipe.imagePath' alt='{{ recipe.name }}' loading="lazy").recipe-list-img

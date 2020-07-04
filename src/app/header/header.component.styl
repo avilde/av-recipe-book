@@ -16,14 +16,14 @@ ul.nav
     span
       display: flex
       transition: color 0.4s ease-in-out
-  
+
   a.active
     background-color: $color-header-active-background
     border-bottom-style: solid
     border-bottom-color: $color-header-logo
-    
+
     span
-      color: $color-header-logo 
+      color: $color-header-logo
 
 #navBar.navbar-collapse
   transition: all 0.3s ease-in-out
@@ -49,11 +49,11 @@ a.logo
     transform: scale(1.1)
     transition: transform 0.3s ease-in-out
 
-  img 
+  img
     max-height: 2.5rem
     transform: rotate(-5deg)
 
-  span 
+  span
     height: 100%
     display: flex
     justify-content: center
@@ -65,7 +65,17 @@ a.logo
     margin: 0 0.5rem
     transform: rotate(-3deg)
 
-li.logout 
+@media (max-width: 20rem)
+  a.logo
+    min-width: 5rem
+
+    img
+      max-height: 2rem
+
+    span
+      font-size: 1rem
+
+li.logout
   display: flex
   align-items: center
   justify-content: flex-start

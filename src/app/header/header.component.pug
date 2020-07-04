@@ -1,5 +1,5 @@
 nav.navbar.navbar-default.header
-  
+
   div.container-fluid  
     div.navbar-header
       button.navbar-toggle((click)='toggleMenu()' type='button')
@@ -7,19 +7,19 @@ nav.navbar.navbar-default.header
         span.icon-bar
         span.icon-bar
       a.logo(href='#')
-        img.header-img(src='./assets/logo.png') 
+        img.header-img(src='./assets/logo.png' loading="lazy" alt='') 
         span Recipe Book
 
     div#navBar.collapse.navbar-collapse
       ul.nav.navbar-nav
         li
-          a(routerLink='/auth', routerLinkActive='active', *ngIf='!isAuthenticated') 
+          a(routerLink='/auth' routerLinkActive='active', *ngIf='!isAuthenticated') 
             span Authenticate
         li
-          a(routerLink='/recipes', routerLinkActive='active', *ngIf='isAuthenticated')
-           span Recipes        
+          a(routerLink='/recipes' routerLinkActive='active', *ngIf='isAuthenticated')
+            span Recipes        
         li
-          a(routerLink='/shopping-list', routerLinkActive='active') 
+          a(routerLink='/shopping-list' routerLinkActive='active') 
             span Shopping List
 
       ul.nav.navbar-nav.navbar-right
