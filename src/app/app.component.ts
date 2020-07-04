@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import { mySignature } from 'src/utils/commonUtils';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +14,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.authService.autoLogin();
+    mySignature();
   }
 }
