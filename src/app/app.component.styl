@@ -1,7 +1,8 @@
 @import 'colors'
 
 .container
-  max-height: calc(100vh - 5rem)
+  max-height: calc(100vh - 5rem - 1rem);
+  margin-bottom: 1rem
   overflow: auto
 
   &::-webkit-scrollbar
@@ -36,3 +37,18 @@
 
   &::-webkit-scrollbar-corner
     background: transparent
+
+footer
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+  height: 1rem
+  font-size: 0.75rem
+  background-color: $footer-background
+  color: $footer-foreground
+
+  .test-user
+    display: flex
+    align-self: center
+    justify-content: center

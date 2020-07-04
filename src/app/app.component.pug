@@ -1,6 +1,9 @@
 app-header
 
-.container
+main.container
     .row
         .col-md-12
             router-outlet
+
+footer(*ngIf='isTestUser')
+    span.test-user Test user recipe changes will not be saved to server
