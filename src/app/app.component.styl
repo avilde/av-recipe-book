@@ -1,3 +1,38 @@
+@import 'colors'
+
 .container
   max-height: calc(100vh - 5rem)
   overflow: auto
+
+  &::-webkit-scrollbar
+    width: 0.5rem
+    height: 0.5rem
+
+  &::-webkit-scrollbar-button
+    width: 0
+    height: 0
+
+  &::-webkit-scrollbar-thumb
+    background: $color-secondary
+    border: 0.0625rem solid $color-auth-form-text-shadow
+    border-radius: 0.25rem
+
+  &::-webkit-scrollbar-thumb:hover
+    background: $color-header-logo
+
+  &::-webkit-scrollbar-thumb:active
+    background: $color-primary
+
+  &::-webkit-scrollbar-track
+    background: $color-auth-form-text-shadow
+    border: 0.0625rem solid $color-auth-form-text-shadow
+    border-radius: 0.5rem
+
+  &::-webkit-scrollbar-track:hover
+    background: $color-auth-form-text-shadow
+
+  &::-webkit-scrollbar-track:active
+    background: $color-auth-form-text-shadow
+
+  &::-webkit-scrollbar-corner
+    background: transparent
