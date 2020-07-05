@@ -48,4 +48,9 @@ export class RecipeService {
     this.recipes = recipes;
     this.recipesSet.next(recipes);
   }
+
+  removeRecipes() {
+    this.recipes = [];
+    this.recipesChanged.next([]);
+  }
 }

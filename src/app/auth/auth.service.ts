@@ -11,6 +11,7 @@ import {
 } from './constants';
 import { User } from './user.module';
 import { Router } from '@angular/router';
+import { RecipeService } from '../recipes/recipe.service';
 
 export interface AuthResponse {
   kind: string;
@@ -37,7 +38,7 @@ export class AuthService {
   isTestUser: boolean = false;
   tokenExpirationTimer: NodeJS.Timeout;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private recipeService: RecipeService) {}
 
   signUp(email: string, password: string) {
     return this.http
@@ -102,6 +103,7 @@ export class AuthService {
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);
     }
+    this.recipeService.removeRecipes();
   }
 
   autoLogout(expirationDuration: number) {
@@ -110,6 +112,7 @@ export class AuthService {
     );
     this.tokenExpirationTimer = setTimeout(() => {
       this.logout();
+      this.recipeService.removeRecipes();
     }, expirationDuration);
   }
 
