@@ -9,6 +9,8 @@ import { TEST_USER } from '../auth/constants';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
+  private userId: string = null;
+
   constructor(
     private http: HttpClient,
     private recipeService: RecipeService,
@@ -24,17 +26,34 @@ export class DataStorageService {
 
       this.storeRecipes(recipes);
     });
+
+    authService.user.subscribe( userData => {
+      if (!userData) {
+        this.userId = null;
+        return;
+      }
+
+      this.userId = userData.id;
+    })
   }
 
   storeRecipes(recipes: Recipe[]) {
+    if (!this.userId) {
+      return;
+    }
+
     return this.http
-      .put(`${FIREBASE_STORAGE_URL}/${RECIPES_DB}`, recipes)
+      .put(`${FIREBASE_STORAGE_URL}/${this.userId}/${RECIPES_DB}`, recipes)
       .subscribe();
   }
 
   fetchRecipes() {
+    if (!this.userId) {
+      return;
+    }
+
     return this.http
-      .get<Recipe[]>(`${FIREBASE_STORAGE_URL}/${RECIPES_DB}`)
+      .get<Recipe[]>(`${FIREBASE_STORAGE_URL}/${this.userId}/${RECIPES_DB}`)
       .pipe(
         map((recipes) => {
           if (!recipes) {
