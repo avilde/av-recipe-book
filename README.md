@@ -5,16 +5,19 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a7da9937-1e45-4a3c-9323-d1d5f07a2ed8/deploy-status)](https://app.netlify.com/sites/av-recipe-book/deploys)
 
 ## Description
-Have learned VueJS and ReactJS now it is time to finally try Angular and see how it differs from other frameworks. This is a Udemy Angular course project still in progress but already added Netlify pipeline.
+Have learned VueJS and ReactJS now it is time to finally try latest Angular and see how it differs from other frameworks. 
 
-To learn more than the course gives me, I chose to go with different tools - Stylus & PUG compared to what instructor chose (regular HTML and CSS files).
+This is a Udemy Angular course project which I decided to improve in many ways to learn more than the course gives me:
+* used `PUG` framework instead of regular HTML
+* used `Stylus` CSS pre-processor instead of regular CSS
+* added color theme
+* responsivness on different devices
+* storing changes automatically
+* test user
+* animations
+* unit of measure for ingredients
 
 #### [Demo](https://av-recipe-book.netlify.app/)
-
-## Features
-- create shopping list
-- create recipes & ingredients
-- save & retrieve your own recipes
 
 ## Technologies Used
 - Angular-CLI 9.1.1
