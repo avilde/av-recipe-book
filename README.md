@@ -1,5 +1,5 @@
 # AV Recipe Book Project
-Have learned VueJS and ReactJS now it is time to finally try latest Angular and see how it differs from other frameworks. Created this project from scratch as I could not just copy-paste the instructors code due to using different HTML and CSS frameworks.
+Have learned VueJS and ReactJS now it is time to finally try latest Angular and see how it differs from other frameworks. 
 
 Application is a simple recipe book where you can save/edite/delte your own recipes with authorization. You can also add recipe ingredients to shopping list and print it.
 
