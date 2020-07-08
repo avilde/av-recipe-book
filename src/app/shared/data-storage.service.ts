@@ -21,7 +21,7 @@ export class DataStorageService {
         console.info(
           `Logged in user is a test user (${TEST_USER}) - recipe changes will not be persisted`
         );
-        // return;
+        return;
       }
 
       this.storeRecipes(recipes);
