@@ -1,6 +1,6 @@
-# AV Recipe Book Angular9 Project
+# AV Recipe Book Project
 
-![AV Recipe Book Logo](./src/assets/tomatos.png "AV RecipeBook Cover Cover")
+![AV Recipe Book Logo](./src/assets/av-recipes-cover.png "AV RecipeBook Cover Cover")
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a7da9937-1e45-4a3c-9323-d1d5f07a2ed8/deploy-status)](https://app.netlify.com/sites/av-recipe-book/deploys)
 
