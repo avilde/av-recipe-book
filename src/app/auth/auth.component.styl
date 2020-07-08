@@ -36,6 +36,11 @@ div.row.buttons
   
   .error
     position: absolute
+    margin: 0 auto
+    left: 0
+    right: 0
+    text-align: center
+    border-radius: 0
 
 button.test
   align-self: center
@@ -50,3 +55,11 @@ button.test
   margin: 0 auto
   left: 0
   right: 0
+
+@media (max-width: 480px)
+  .auth
+    padding-top: 1rem
+    height: 25rem
+
+    .error
+      font-size: 0.75rem
