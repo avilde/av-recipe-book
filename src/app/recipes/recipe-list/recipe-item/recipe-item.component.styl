@@ -9,13 +9,14 @@
   min-height: 4rem
   max-height: 4rem
   overflow: hidden
+  margin-bottom: 0.5rem
   
   .list-group-item-heading,
   .list-group-item-text
     height: 1.5rem
     line-height: 1.5rem
     width: 70vw
-    max-width: 24rem
+    max-width: 22rem
     text-overflow: ellipsis
     overflow: hidden
     white-space: pre
@@ -26,8 +27,11 @@
     border-radius: 0.25rem
 
   &.active
-    background-color: $color-secondary
+    background: linear-gradient(to left, $color-header-logo, $color-secondary)
     border-color: $color-primary
+
+    .list-group-item-text
+      color: #fff
 
   .list-group-item-text
     font-size: 0.75rem
