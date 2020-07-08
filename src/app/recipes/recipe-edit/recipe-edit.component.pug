@@ -42,9 +42,10 @@ div.row
             *ngFor='let ingredientControl of controls; let i = index'
           )
             div.col-xs-2
-              input#amount.form-control(type='number' formControlName='amount')
+              input.form-control([id]='"amount-" + i' type='number' formControlName='amount')
             div.col-xs-3
-              select#unit.form-control(
+              select.form-control(
+                [id]='"unit-" + i',
                 autocomplete='off',
                 name='unit',
                 required,
@@ -52,7 +53,7 @@ div.row
               )
                 option(*ngFor='let unit of unitOfMeasure', [value]="unit") {{ unit }}
             div.col-xs-5
-              input#name.form-control(type='text' formControlName='name' placeholder='Enter ingredient...')
+              input.form-control([id]='"name-" + i' type='text' formControlName='name' placeholder='Enter ingredient...')
             div.col-xs-2
               button.btn.btn-danger((click)='onDeleteIngredient(i)' type='button') X
 
